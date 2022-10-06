@@ -1,0 +1,37 @@
+#plasmabounce-gui{
+    position:absolute;
+    bottom:20px;
+    left:40px
+}
+#plasmabounce-gui-title{
+    font-size: 56px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: -webkit-linear-gradient(315deg,#123944 25%,#b93fb9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    bottom: 0px;
+}
+#plasmabounce-author{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    bottom: 0px;
+}
+#plasmabounce-gui-subtitle{
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: -webkit-linear-gradient(315deg,#a677b4 25%,#2e0274);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 12px;
+}
+
+#plasmabounce-gui-arraylist {
+    display: flex;
+    flex-direction: column-reverse;
+}
