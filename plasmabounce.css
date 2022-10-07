@@ -15,7 +15,7 @@
 #plasmabounce-author{
     font-size: 18px;
     font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sans-serif;
     background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,4 +34,56 @@
 #plasmabounce-gui-arraylist {
     display: flex;
     flex-direction: column-reverse;
+}
+#plasmabounce-gui-arraylist-sub {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: -webkit-linear-gradient(260deg,#273841 25%,#44b8cd);
+}
+
+#plasmabounce-gui-op{
+    display: none;
+    position:absolute;
+    z-index: 10000;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    filter: blur(10px);
+    background: -webkit-repeating-linear-gradient(45deg, #123944, #123944 10px, #b93fb9 10px, #b93fb9 20px);
+    opacity: 0.5;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+#plasmabounce-gui-real {
+    display: none;
+    flex-direction: column;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 10001;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.plasmabounce-arraye{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin:5px;
+}
+
+.plasmabounce-arraye-st{
+    display:inline;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    margin-right:10px;
+}
+
+#pb-timer-b{
+    margin-right:20px;
+    background-color: #123944;
+    color: aliceblue;
 }

@@ -10,7 +10,8 @@
 		"webNavigation", "*://*/*"
     ],
 	"web_accessible_resources": [
-        "scripts/inject.js"
+        "scripts/inject.js",
+		"scripts/mdui.js"
     ],
     "icons":
 	{
@@ -23,7 +24,7 @@
 		{
 			"matches": ["<all_urls>"],
 			"js": ["scripts/plasmabounce.js"],
-			"css": ["plasmabounce.css"],
+			"css": ["plasmabounce.css", "mdui.css"],
 			"run_at": "document_start"
 		}
 	],
