@@ -1,4 +1,4 @@
-console.log("PlasmaBounce Injected");
+console.log("PlasmaBounce Injected - like a steroid for Shanmao Homework System");
 Wrapper();
 
 var IntervalList = [];
@@ -11,17 +11,18 @@ class StateManager {
         this.states = {};
         this.states["GUI"] = {
             "enabled": false
-        },
-            this.states["Timer"] = {
+        };
+        this.states["Timer"] = {
                 "enabled": false,
                 "boost": 1
-            };
+        };
         this.states["MultiChoiceESP"] = {
             "enabled": false
         };
         this.states["NoAntiCheat"] = {
             "enabled": true
-        }
+        };
+        this.states["IntervalList"] = [];
         if (this.accessor("NoAntiCheat").enabled) {
             for(const element of document.body.attributes) {
                 var attrList = ["onselectstart", "onselect", "onbeforecopy", "oncopy", "oncontextmenu", "onkeydown", "onmouseup"];
@@ -33,6 +34,9 @@ class StateManager {
     }
     mutator(key, value) {
         this.states[key] = value;
+    }
+    pusher(key, value){
+        this.states[key].push(value);
     }
     accessor(key) {
         return this.states[key];
@@ -47,7 +51,7 @@ function GUIInit() {
 
     let GUIContainer = document.createElement("div");
     GUIContainer.id = "plasmabounce-gui";
-    GUIContainer.zIndex = 128;
+    GUIContainer.zIndex = 20221018;
     document.documentElement.appendChild(GUIContainer);
     let author = document.createElement("span");
     author.id = "plasmabounce-author";
@@ -103,7 +107,6 @@ function GUIInit() {
             document.body.setAttribute("onselect","return false;");
             document.body.setAttribute("onselectstart","return false;");
             document.body.setAttribute("onselect","document.selection.empty();");
-            document.body.setAttribute("ondragstart","return false;");
             document.body.setAttribute("onbeforecopy","return false;");
             document.body.setAttribute("oncopy","document.selection.empty();");
             document.body.setAttribute("onmouseup","return false;");
@@ -126,6 +129,21 @@ function intervalWrapper(func, delay, nativeSetTimeout) {
     }, curDelay);
 }
 
+
+function createNativeContext(){
+    let element = document.createElement("iframe");
+    element.href = "https://www.example.com";
+    element.style.display = "none";
+    document.documentElement.appendChild(element);
+    return element.contentWindow;
+}
+
+function intervalConsWrapper(){
+
+}
+
+
+
 function nativeHijack() {
     let originalFS = fullScreen;
     fullScreen = function () {
@@ -135,12 +153,7 @@ function nativeHijack() {
             originalFS();
         }
     }
-    let nativeSetInterval = window.setInterval;
-    let nativeSetTimeout = window.setTimeout;
-    window.setInterval = function (a, b) {
-        IntervalList.push(new intervalWrapper(a, b, nativeSetTimeout));
-    }
-    nativeSetInterval(function () {
+    setInterval(function () {
         if (stateManager.accessor("MultiChoiceESP").enabled) {
             var z = document.getElementById("NEXT_BTN"); 
             var l = document.getElementsByClassName("items");
@@ -153,6 +166,22 @@ function nativeHijack() {
                 }
         }
     }, 100);
+    var nativeContext = createNativeContext();
+    function InvContainer(func, delay){
+        this.timer = 0;
+        var curDelay = delay;
+        if (stateManager.accessor("Timer").enabled) {
+            curDelay = delay * stateManager.accessor("Timer").boost;
+        }
+        stateManager.pusher("IntervalList", nativeContext.setTimeout(() => {
+            this.timer++;
+            func(this, timer);
+            InvContainer(func, delay);
+        }, curDelay));
+    }
+    setInterval = (func, delay) => {
+        InvContainer(func, delay);
+    }
 }
 
 function queryMaster(info) {

@@ -44,7 +44,7 @@
 #plasmabounce-gui-op{
     display: none;
     position:absolute;
-    z-index: 10000;
+    z-index: 20221018;
     top:0;
     left:0;
     width:100%;
@@ -62,7 +62,7 @@
     position:absolute;
     top:0;
     left:0;
-    z-index: 10001;
+    z-index: 20221019;
     padding: 40px;
     box-sizing: border-box;
 }

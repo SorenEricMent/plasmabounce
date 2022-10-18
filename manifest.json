@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Plasmabounce",
     "description": "The HACKED extension for Shanmao Homework System",
-    "version": "4.0",
+    "version": "1",
     "permissions": [
         "tabs",
         "https://plasmabounce.winslow.cloud/",
